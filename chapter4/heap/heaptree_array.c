@@ -31,7 +31,7 @@ void pq_insert(priority_queue *q, item_type x)
 {
 	if (q->n >= PQ_SIZE)
 	{
-		printf("Warning: priority queue overflow insert x = %d\n", x);
+		printf("warning: priority queue overflow insert x = %d\n", x);
 	}else{
 		q->n = (q->n) + 1;
 		q->q[q->n] = x;
@@ -71,8 +71,47 @@ void make_heap(priority_queue *q, int n, item_type s[])
 	pq_init(q);
 	for (int i = 0; i < n; ++i)
 	{		
-		/* code */
 		insert(q, s[i]);
+	}
+}
+
+item_type extract_min(priority_queue *q)
+{
+	int min = -1;
+	if(q->n < 0)
+		printf("warning: empty priority queue.\n");
+	else{
+		min = q->q[1];
+		q->n = q->n -1;
+		bubble_down(q, 1);
+	}
+	return min;
+}
+
+bubble_down(priority_queue *q, int p)
+{
+	int c;			//child index
+	int i;			//counter
+	int min_index;	//index of lightest child
+
+	c= pq_little_child(p);
+	min_index = p;
+
+	for (int i = 0; i <= 1; ++i)
+	{
+		if ((c + i) <= p->n)
+		{
+			if (q->q[min_index] > q->q[c+i])
+			{
+				min_index = c + i;
+			}
+		}
+	}
+
+	if (min_index != p)
+	{
+		pq_swap(q, p, min_index);
+		bubble_down(q, min_index);
 	}
 }
 
