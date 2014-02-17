@@ -1,5 +1,6 @@
 /*
 	Total time: O(nlogn)
+	inplace sort (means it uses no extra memory over the array containing the )
 */
 
 typedef struct 
@@ -75,6 +76,23 @@ void make_heap(priority_queue *q, int n, item_type s[])
 	}
 }
 
+void make_heap2(priority_queue *q, int n, item_type s[])
+{
+	int i;					// counter
+
+	q->n = n;
+
+	for (i = 0; i < n; ++i)
+	{
+		q->q[i+1] = s[i];
+	}
+
+	for(i  = i; i <= n; i++)
+	{
+		bubble_down(q, i);
+	}
+}
+
 item_type extract_min(priority_queue *q)
 {
 	int min = -1;
@@ -115,4 +133,15 @@ bubble_down(priority_queue *q, int p)
 	}
 }
 
+void heapsort(item_type s[], int n)
+{
+	int i; 					// counters
+	priority_queue 	q;		// queue
 
+	make_heap(&q, n, s);
+
+	for (int i = 0; i < n; ++i)
+	{
+		s[i] = extract_min(q);
+	}
+}
