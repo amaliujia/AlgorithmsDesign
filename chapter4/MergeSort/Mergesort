@@ -1,2 +1,0 @@
-Mergesort(A[1,n])
-	Merge(Mergesort(A[1, n/2]), Mergesort([n/2 + 1, n]))
