@@ -9,7 +9,8 @@ typedef struct{
 
 }cell;
 
-cell mat[MAXLEN+1][MAXLEN+1] = {0};
+cell mat[MAXLEN+1][MAXLEN+1];
+
 
 int String_compara(char *s, char *t)
 {
@@ -36,6 +37,44 @@ int String_compara(char *s, char *t)
 				mat[i][j].action = k;
 			}
 		}
-	} 
+	}
+	goal_cell(s, t, &i, &j);
 	return mat[i][j].cost;
+}
+
+int match(char c, char d)
+{
+	if(c == d)
+	{
+		return 0;
+	}else{
+		return 1;	
+	}
+}
+
+int indel(char c)
+{
+	return 1;
+}
+
+void goal_cell(char *s, char *t, &i, &j)
+{
+	*i = strlen(s);
+	*j = strlen(j);
+}
+
+void insert_rev(char *c, int i)
+{
+	printf("I");
+}
+
+void delete_rev(char *c, int j)
+{
+	printf("D");
+}
+
+void match(char *c, char *t, int i, int j)
+{
+	if(s[i] == s[j]) printf("M");
+	else	printf("S");
 }
