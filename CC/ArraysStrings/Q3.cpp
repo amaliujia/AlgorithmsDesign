@@ -4,17 +4,26 @@ int stringPermutation(char *s, char *t)
 {
     
     map<char,int> m;
-    while(*s != '\0')
+    for(int i = 0; i < 256; i++)
+	{
+		map[(char)i] = 0;
+	}
+	while(*s != '\0')
     {
-        m[*s] = 1;
+        m[*s]++;
         s++;
     }
     while(*t != '\0')
     {
-        if(m.find(*t) == m.end()){
-            return 0;
-        }
+   		m[*t]--; 
         t++;
     }
+	for(int i = 0; i < 256; i++)
+	{
+		if(m[(char)i] != 0)
+		{
+			return 0;
+		}
+	}
     return 1;
 }
