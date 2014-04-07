@@ -63,6 +63,33 @@ void goal_cell(char *s, char *t, &i, &j)
 	*j = strlen(j);
 }
 
+void reconstruct_path(char *s, char *t, int i, intj)
+{
+	if(mat[i][j].parent == -1)  return;
+
+	if(mat[i][j].parent == MATCH)
+	{
+		reconstruct_path(s, t, i-1, j-1);
+		match_out(s, t, i ,j);
+		return;
+	}
+
+	if(mat[i][j].parent == INSERTION)
+	{
+		reconstruct_path(s, t, i, j-1);
+		insert_rev(t, j);
+		return;
+	}
+
+	if(mat[i][j].parent == DELETION)
+	{
+		reconstruct_path(s, t, i-1, j);
+		delet_rev(s, i);
+		return;
+	}
+	return;
+}
+
 void insert_rev(char *c, int i)
 {
 	printf("I");
