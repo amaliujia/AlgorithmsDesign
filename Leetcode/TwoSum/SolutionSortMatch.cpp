@@ -1,4 +1,3 @@
-
 class Solution {
 public:
     vector<int> twoSum(vector<int> &numbers, int target) {
@@ -42,7 +41,6 @@ public:
                         out_res.push_back(index2);
                         out_res.push_back(index1);
                     }
-                  //  std::cout<<out_res[0]<<","<<out_res[1]<<std::endl;
                     return out_res;
                 }
                
