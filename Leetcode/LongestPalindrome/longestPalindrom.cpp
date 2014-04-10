@@ -1,3 +1,7 @@
+/*
+	time complexity: O(n^2)
+	space complexity: O(1)
+*/
 class Solution {
 public:
     string longestPalindrome(string s) {
