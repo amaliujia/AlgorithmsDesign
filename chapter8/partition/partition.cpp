@@ -1,3 +1,6 @@
+/*
+	time comlexity O(n^3)
+*/
 int partition(int s[], int n, int k)
 {
 	int m[MAXN+1][MAXN+1];
