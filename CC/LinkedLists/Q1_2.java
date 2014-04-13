@@ -1,5 +1,6 @@
 /*
 	assume we only need to deal with 'A-Z'
+	both time and space efficient(O(n) && O(1))
 */
 
 void removeDuplicates(Node head)
