@@ -5,6 +5,7 @@ Node kthToLast(Node head, int k)
 	Node slave = head;
 
 	while(flag <  k){
+		if(master == null) return null;
 		master = master.next;
 		flag++;
 	}
