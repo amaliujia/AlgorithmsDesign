@@ -9,7 +9,7 @@ public static boolean LinkedListAndPalindrome(LinkedListNode head)
 	if(head == null) return false;
 	if(head.next == null) return true;
 
-	return recursiveSearch(head, head.next) == null ? false : true;
+	return recursiveSearch(head, head.next) != null;
 }
 
 public static LinkedListNode recursiveSearch(LinkedListNode master, LinkedListNode slave){
