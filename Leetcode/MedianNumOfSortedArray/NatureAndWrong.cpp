@@ -1,4 +1,4 @@
-ass Solution {
+class Solution {
 	public:
 		double findMedianSortedArrays(int A[], int m, int B[], int n) {
 		    if(n != 0 && m != 0){
