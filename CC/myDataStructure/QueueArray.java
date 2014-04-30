@@ -85,7 +85,7 @@ public class SequenceQueue<T>
 		return (rear == front) && (elementData[rear] == null);	
 	}
 	
-	// return element in fromt, but not delete it
+	// return element in front, but not delete it
 	public T element()
 	{
 		if(empty())
