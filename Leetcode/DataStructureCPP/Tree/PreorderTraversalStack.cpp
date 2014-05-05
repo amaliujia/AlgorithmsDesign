@@ -1,3 +1,8 @@
+/*
+	O(n) time
+	O(n) space
+*/
+
 #include "TreeNode.h"
 #include <vector>
 
