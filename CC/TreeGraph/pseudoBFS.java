@@ -1,5 +1,4 @@
-void BFS(Node root)
-{
+void BFS(Node root){
 	Queue queue = new Queue();
 	root.visited = true;
 	visit(root);
