@@ -1,13 +1,14 @@
+public static int last = Integer.MIN_VALUE;
+
 public static boolean checkBinarySearchTree(TreeNode root){
 	if(root == null) return true;
+
+	if(!checkBinarySearchTree(root.left)) return false;
 	
-	if(root.left != null){
-		if(root.left.value >= root.vaule) return false;
-	}
+	if(root.data <= last) return false;
+	last = root.data;
 
-	if(root.right != null){
-		if(root.right.value <= root.value) return false;
-	}
+	if(!checkBinarySearchTree(root.right)) return false;	
 
-	return checkBinarySearchTree(root.left) && checkBinarySearchTree(root.right)
+		
 }
