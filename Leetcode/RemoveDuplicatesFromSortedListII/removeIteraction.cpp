@@ -3,7 +3,7 @@ public:
 	ListNode *deleteDuplicates(ListNode *head) {
     if(!head || !head->next) return head;
     ListNode *dummy = new ListNode(INT_MIN);
-    dummy->next = head;
+    dummy->next = NULL;
     ListNode *saver = dummy;
     ListNode *cur = head;
     
