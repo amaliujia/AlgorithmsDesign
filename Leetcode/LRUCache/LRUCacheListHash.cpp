@@ -1,3 +1,8 @@
+/*
+	what is time complexity?
+	O(n) space
+*/
+
 class LRUCache{
 private:
 	struct CacheNode{
