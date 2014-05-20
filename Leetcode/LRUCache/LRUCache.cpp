@@ -18,7 +18,11 @@ public:
 	}
 
 	void set(int key, int value){
-		if(plate.capacity <= plate.cache.size()){
+		if(plate.cache.find(key) != plate.cache.end()){
+			plate.cache[key].value = value;
+			plate.cache[key].count++;
+			return;	
+		}else if(plate.capacity <= plate.cache.size()){
 			map<int, breastplate>::iterator it;
 			int max = -1;
 			int thisKey;	
@@ -30,17 +34,15 @@ public:
 			}
 			plate.cache.erase(plate.cache.find(thisKey));
 		}
-		    breastplate b;
-            b.value = value;
-            b.count = 0;
-            plate.cache[key] = b;
+            plate.cache[key] = breastplate(value, 1);
 	}
 
 private:
-	typedef struct{
+	 struct breastplate{
 		int value;
 		int count;
-	}breastplate;
+		breastplate(int v, int c):value(v), count(c);
+	};
 
 	class Armor{
 	public:
