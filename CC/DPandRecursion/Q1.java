@@ -1,3 +1,7 @@
+/*
+	As there are many recomputation, therefore this algorithm is exponential.
+	O(3^n)
+*/
 public int runupStair(int n){
 	return recurRun(n);
 }
