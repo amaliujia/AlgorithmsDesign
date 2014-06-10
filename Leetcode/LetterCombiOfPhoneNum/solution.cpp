@@ -1,3 +1,8 @@
+/*
+	apply base case and build approach
+	O(n^3) time.
+*/
+
 class Solution {
 public:
     vector<string> letterCombinations(string digits) {
