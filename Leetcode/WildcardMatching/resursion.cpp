@@ -1,3 +1,6 @@
+/* 
+	O(n! * m!) time
+*/
 class Solution {
 public:
     bool isMatch(const char *s, const char *p) {
