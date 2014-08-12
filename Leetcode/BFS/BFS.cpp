@@ -8,7 +8,7 @@ vector<int> levelOrder(TreeNode *root){
 	q.push(root);
 	
 	while(!q.empty()){
-		TreeNode *node = q.top();
+		TreeNode *node = q.front();
 		result.push_back(node->val);
 		if(node->left != NULL)	q.push(node->left);
 		if(node->right != NULL)	q.push(node->right);
