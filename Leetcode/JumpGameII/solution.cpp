@@ -1,4 +1,4 @@
-// O(n!) time in best case
+// O(n!) time in worse case
 // O(n!) is slower than O(n^2) 
     int jump(int A[], int n) {
             if(n == 0)  return 0;
