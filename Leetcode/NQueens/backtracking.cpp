@@ -1,7 +1,6 @@
 // O(n) space
 // O(n^n*n) time (we can express all solutions by n-trees, and every path from root to leaf is a solution. so we get n*n solutions.
-// Also, each solution, we need n times iteration to build result vector, it needs O(n) time.
-//So totally we need O(n^n*n) time
+//So totally we need O(n^n) time
 
 class Solution {
 public:
