@@ -1,3 +1,5 @@
+// O(2^n) time
+
 class Solution {
 public:
     vector<vector<int> > subsets(vector<int> &S) {
