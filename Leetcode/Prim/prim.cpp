@@ -25,10 +25,8 @@ void prim(Graph G, int vcount, int father[]){
                 min=lowcost[k];
             }
         }
-        
         father[j]=closedset[j];
         used[j]=1;
-        
         for (k=1; k<vcount; k++) {
             if (!used[k]&&G[j][k]<lowcost[k]) {
                 lowcost[k]=G[j][k];
