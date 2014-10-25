@@ -1,5 +1,6 @@
+
 int largestRectangleArea(vector<int> &height){
-	// define tow stacks, one for heights and the other for indexes
+	// define two stacks, one for heights and the other for indexes
 	stack<int> heights;
 	stack<int> index;
 
