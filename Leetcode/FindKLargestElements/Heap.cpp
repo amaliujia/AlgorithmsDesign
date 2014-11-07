@@ -6,7 +6,6 @@ int minHeap(int a[], int index, int k){
 	if(leftIndex < k && a[leftIndex] < a[minIndex]){
 		minIndex = leftIndex;				
 	}  
-	
 	if(rightIndex < k && a[rightIndex] < a[minIndex]){
 		minIndex = rightIndex;
 	}
@@ -20,3 +19,8 @@ int minHeap(int a[], int index, int k){
 	return 0;		
 }
 
+int buildHeap(int a[], int k){
+	for(int i = k; i >= 1; i--){
+		minHeap(a, i, k);	
+	} 
+}
