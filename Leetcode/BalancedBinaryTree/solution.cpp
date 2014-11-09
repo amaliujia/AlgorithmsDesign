@@ -7,7 +7,6 @@ public:
         return true;
     }
 private:
-    
     int subTreeDepth(TreeNode *node){
         if(node == NULL)    return 0;
         int left = subTreeDepth(node->left);
