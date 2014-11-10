@@ -27,7 +27,7 @@ double findkth(int A[], int m, int B[], int n, int k)
     ka = k/2 > m ? m : k/2;
     kb = k - ka;
     
-    if(A[ka-1] == B[kb]){
+    if(A[ka-1] == B[kb-1]){
         return A[ka-1];
     }else if(A[ka-1] > B[kb-1]){
         return findkth(A, m, B+kb, n-kb, k-kb);   
