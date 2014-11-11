@@ -17,17 +17,17 @@ public:
 			}
 			if(head == NULL)
 			{
-				head = new ListNode(sum%10);
+				head = new ListNode(sum % 10);
 				tail = head;
 			}else{
-				tail->next = new ListNode(sum%10);
+				tail->next = new ListNode(sum % 10);
 				tail = tail->next;
 			}		
 			sum /= 10;
 		}
 		if(sum != 0)
 		{
-            tail->next = new ListNode(sum%10);
+            tail->next = new ListNode(sum % 10);
             tail = tail->next;
 		}
 		return head;
