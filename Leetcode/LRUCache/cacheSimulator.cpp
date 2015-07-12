@@ -11,9 +11,9 @@
 
 
 struct Line{
-	int valid;
-	unsigned long int tag;
-	int counter;
+  int valid;
+  unsigned long int tag;
+  int counter;
 };
 
 //typedef struct _Line Line;
@@ -28,77 +28,77 @@ void myPrintSummary(int hit, int miss, int eviction);
 
 
 int main(int argc,  char *argv[]){
-	int rc = CACHE_OK;
-		
-	// argument
-	if(argc <= 7){
-		rc = getError(CACHE_ARGUMENT_LACK);
-		return rc;
-	}
-	//here
-	int set = 0, line = 0, block = 0, s = 0;
-	int hit = 0, miss = 0, eviction = 0;
-	char *path;
-	int ch;
-	int vflag = 0;
-    while((ch = getopt(argc, argv, "vs:E:b:t:")) != -1){
-        switch(ch){
-            case 'v':
-                printf("-v\n");
-                vflag = 1;
-				break;
-            case 's':
-                if(isDigit((&optarg[0])) == 0){
-					//here
-					s = atoi(optarg);
-					set = myPow(2, atoi(optarg)); 
-					printf("sets : %d\n", set);
-                }else{
-                    rc = getError(CACHE_ARGUMENT_LOST);
-					return rc;
-				}
-                break;
-            case 'E':
-                if(isDigit(&optarg[0]) == 0){
-                    line = atoi(optarg);
-					printf("line: %d\n", line);
-                }else{
-                    rc = getError(CACHE_ARGUMENT_LOST);
-					return rc;
-				}
-                break;
-            case 'b':
-               if(isDigit(&optarg[0]) == 0){
-                    block = atoi(optarg); 
-					printf("block: %d\n", block);
-                }else{
-                    rc = getError(CACHE_ARGUMENT_LOST);
-					return rc;
-				}
-                break;
-            case 't':
-				path = optarg;	
-				printf("-t %s\n", optarg);
-                break;
-            default:
-                printf("Unknow arguments, argv = %c. \nPlease check your input\n", ch);
-                rc = CACHE_ARGUMENT_LACK;
-				return rc;}
-    }
-// File 
-	FILE *fp; 
-	fp = fopen(path, "r");
-	if(!fp){
-		rc = getError(CACHE_FILE_OPEN_FAIL);
-		return rc;
-	}	
-	struct Line cache[set][line];	
-	int capacity[set];
-	int i ,j;
-	for(i = 0; i < set; i++){
-		capacity[i] = line;;
-	}
-	for(i = 0; i < set; i++){
+  int rc = CACHE_OK;
+
+  // argument
+  if(argc <= 7){
+    rc = getError(CACHE_ARGUMENT_LACK);
+    return rc;
+  }
+  //here
+  int set = 0, line = 0, block = 0, s = 0;
+  int hit = 0, miss = 0, eviction = 0;
+  char *path;
+  int ch;
+  int vflag = 0;
+  while((ch = getopt(argc, argv, "vs:E:b:t:")) != -1){
+    switch(ch){
+      case 'v':
+        printf("-v\n");
+        vflag = 1;
+        break;
+      case 's':
+        if(isDigit((&optarg[0])) == 0){
+          //here
+          s = atoi(optarg);
+          set = myPow(2, atoi(optarg)); 
+          printf("sets : %d\n", set);
+        }else{
+          rc = getError(CACHE_ARGUMENT_LOST);
+          return rc;
+        }
+        break;
+      case 'E':
+        if(isDigit(&optarg[0]) == 0){
+          line = atoi(optarg);
+          printf("line: %d\n", line);
+        }else{
+          rc = getError(CACHE_ARGUMENT_LOST);
+          return rc;
+        }
+        break;
+      case 'b':
+        if(isDigit(&optarg[0]) == 0){
+          block = atoi(optarg); 
+          printf("block: %d\n", block);
+        }else{
+          rc = getError(CACHE_ARGUMENT_LOST);
+          return rc;
+        }
+        break;
+      case 't':
+        path = optarg;	
+        printf("-t %s\n", optarg);
+        break;
+      default:
+        printf("Unknow arguments, argv = %c. \nPlease check your input\n", ch);
+        rc = CACHE_ARGUMENT_LACK;
+        return rc;}
+  }
+  // File 
+  FILE *fp; 
+  fp = fopen(path, "r");
+  if(!fp){
+    rc = getError(CACHE_FILE_OPEN_FAIL);
+    return rc;
+  }	
+  struct Line cache[set][line];	
+  int capacity[set];
+  int i ,j;
+  for(i = 0; i < set; i++){
+    capacity[i] = line;;
+  }
+  for(i = 0; i < set; i++){
 		for(j = 0; j < line; j++){
 			cache[i][j].valid = 0;
 			cache[i][j].tag = -1;
