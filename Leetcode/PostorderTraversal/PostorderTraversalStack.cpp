@@ -6,7 +6,6 @@ public:
 		stack<const TreeNode *> s;
 
 		cur = root;
-	
 		do{
 			while(cur != NULL){
 				s.push(cur);
