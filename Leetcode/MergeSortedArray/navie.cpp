@@ -1,7 +1,7 @@
 /*
    Average time: O(m + n);
    O(m + n) space	
-   */
+*/
 void merge(int A[], int m, int B[], int n) {
   if(n == 0)  return;
   if(m == 0){
