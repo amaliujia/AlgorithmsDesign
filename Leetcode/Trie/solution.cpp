@@ -3,12 +3,10 @@ public:
     // Initialize your data structure here.
     TrieNode() {
         memset(this->nodes, 0, sizeof(this->nodes));
-        count = 0;
         ifExit = false;
     }
     
     TrieNode* nodes[26];
-    int count;
     bool ifExit;
 };
 
@@ -26,7 +24,6 @@ public:
                 n->nodes[s[i] - 'a'] = new TrieNode();
             }
             n = n->nodes[s[i] - 'a'];
-            n->count++;
         }
         n->ifExit = true;
     }
@@ -53,7 +50,7 @@ public:
             }
             n = n->nodes[prefix[i] - 'a'];
         }
-        return n->count > 0;
+        return true;
     }
 
 private:
