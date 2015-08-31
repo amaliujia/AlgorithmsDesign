@@ -8,13 +8,54 @@ class Graph{
   private:
     int V; //number of node
     vector<vector<int>> edges;
-
+    bool isCyclicUtil(int v, bool *visited, bool *recStack);
   public:
     Graph(int v);  
     void addEdge(int start_node, int end_node);
     void BFS(int s); // print BFS travesal from given node s.
     void DFS(int s);
+    bool isCyclic();
 };
+
+bool Graph::isCyclicUtil(int v, bool *visited, bool *recStack){
+  if(!visited[v]){
+    visited[v] = true;
+    recStack[v] = true;
+    
+    for(int next : edges[v]){
+      
+       if(recStack[next]){
+         return true;
+       }
+      
+      if(!visited[next] && isCyclicUtil(next, visited, recStack)){
+        return true;
+      }
+    }
+  }
+  
+  recStack[v] = false;
+  return false;
+}
+
+
+bool Graph::isCyclic(){
+  bool *visited = new bool[V];
+  bool *recStack = new bool[V];
+  
+  for(int i = 0; i < V; i++){
+    visited[i] = false;
+    recStack[i] = false;
+  }
+  
+  for(int i = 0; i < V; i++){
+    if(isCyclicUtil(i, visited, recStack)){
+      return true;
+    }
+  }
+  return false;
+}
+
 
 Graph::Graph(int v){
   this->V = v;
