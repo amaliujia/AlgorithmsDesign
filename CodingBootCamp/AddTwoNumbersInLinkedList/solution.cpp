@@ -1,3 +1,15 @@
+struct Node{
+  int data;
+  Node *next;
+};
+
+Node *newNode(int data) {
+  Node *new_node = (Node *)malloc(sizeof(Node));
+  new_node->data = data;
+  new_node->next = NULL;
+  return new_node;
+}
+
 Node *addNumbers(Node *n1, Node *n2){
 	if(n1 == NULL)	return n2;
 	if(n2 == NULL)	return n1;
