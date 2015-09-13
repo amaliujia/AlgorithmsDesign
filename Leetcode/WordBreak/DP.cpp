@@ -9,7 +9,7 @@ public:
               for (int j = i - 1; j >= 0; --j) {
                   if (f[j] && dict.find(s.substr(j, i - j)) != dict.end()) {
                       f[i] = true;
-                        break; 
+                      break; 
                   }
             } 
           }
