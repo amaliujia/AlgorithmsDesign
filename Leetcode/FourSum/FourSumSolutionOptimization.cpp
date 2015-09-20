@@ -12,15 +12,15 @@ public:
         int n = num.size();
         int two_sum, tmp_sum;
         int l,r;
-        for(int j = 0; j < num.size()-3;j++){
+        for(int j = 0; j < num.size() - 3; j++){
             if(j > 0 && num[j] == num[j-1])           
                 continue;
-            for(int i= j + 1;i<num.size()-2;i++) {
-              if(i>j+1 && num[i] == num[i-1])
+            for(int i= j + 1; i< num.size() - 2;i++) {
+              if(i > j+1 && num[i] == num[i-1])
                     continue;
-               two_sum = target - num[i] -num[j];
-               l=i+1;
-               r=(int)num.size()-1;
+               two_sum = target - num[i] - num[j];
+               l = i+1;
+               r = (int)num.size()-1;
                while(l<r){
                   tmp_sum = num[l]+num[r];
                  if(tmp_sum < two_sum){
@@ -33,10 +33,10 @@ public:
                         result_vec.push_back(num[l]);
                         result_vec.push_back(num[r]);
                         result_vec.push_back(num[i]);
-                         sort(result_vec.begin(), result_vec.end());
-                      out_vec.push_back(result_vec);
-                     l++;
-                       r--;
+                        sort(result_vec.begin(), result_vec.end());
+                        out_vec.push_back(result_vec);
+                        l++;
+                        r--;
                       while(r<n-1 && num[r] == num[r+1])
                              r--;
                       while(l>i+1 && num[l] == num[l-1])
