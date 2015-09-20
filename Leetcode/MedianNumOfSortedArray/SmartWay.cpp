@@ -34,6 +34,5 @@ double findkth(int A[], int m, int B[], int n, int k)
     }else{
         return findkth(A+ka, m-ka, B, n, k-ka);
     }
-    
 }
 };
