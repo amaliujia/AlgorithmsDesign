@@ -1,8 +1,6 @@
 class Solution {
 public:
     ListNode *swapPairs(ListNode *head) {
-        //if(head == NULL)    return NULL;
-        
         ListNode dummy(-1);
         ListNode *p = &dummy;
         ListNode *q;
@@ -14,7 +12,6 @@ public:
             q->next = p->next->next;
             p->next->next = q;
             
-            p = p->next;
             p = p->next;
         }
     
