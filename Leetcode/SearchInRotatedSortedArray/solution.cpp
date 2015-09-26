@@ -1,12 +1,12 @@
 // Worst case O(n) time
 class Solution {
 public:
-    bool search(int A[], int n, int target) {
+    int search(int A[], int n, int target) {
         int start = 0;
         int end = n - 1;
         while(start <= end){
             int mid = (start + end) / 2;
-            if(target == A[mid])  return true;
+            if(target == A[mid])  return mid;
             else if(A[start] < A[mid]){
                 if(A[start] <= target && target < A[mid]){
                     end = mid - 1;
@@ -23,6 +23,6 @@ public:
                 start++;
             }
         }
-        return false;
+        return -1;
     }
 };

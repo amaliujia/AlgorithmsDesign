@@ -4,19 +4,19 @@ class Solution {
 public:
     int removeDuplicates(int A[], int n) {
         if(n == 0)  return 0;
-        int i = 0;
-        int index = 0;
-        int len = 1;
+        int i = 1;
+        int index = 1;
+        int cur = nums[0];
         while(index < n){
             if(A[i] == A[index]){
                 index++;
             }else{
-                A[i + 1] = A[index];
+                A[i] = A[index];
+                cur = A[index];
                 i++;
                 index++;
-                len++;
             }
         }
-        return len;
+        return i;
     }
 };

@@ -11,12 +11,12 @@ public:
         int i, j;
         vector<int> result;
         
-        if(S.length() < wordsSize)  return result;
-        
+        if(S.length() < wordsSize){
+          return result;
+        }
         unordered_map<string, int> wordCount;
         
         for(i = 0; i < L.size(); i++){
-           // wordcount.push_back(L[i]);
            wordCount[L[i]]++;
         }
         
@@ -34,6 +34,7 @@ public:
                     break;
                 }
             }
+
             if(j == L.size()){
                 result.push_back(i);
             }
