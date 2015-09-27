@@ -5,7 +5,7 @@ int maxProfit(vector<int> &prices) {
     for(int i = 0; i < n; i++){
         if(prices[i] < min) min = prices[i];
            int profit = prices[i] - min;
-            if(profit > max)    max = profit;
+           if(profit > max)    max = profit;
     }
     return max;
 }
