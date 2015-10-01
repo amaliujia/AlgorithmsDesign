@@ -16,7 +16,8 @@
     bigint bigInt(const string &num){
         bigint n;
         transform(num.rbegin(), num.rend(), back_inserter(n),
-              [](char c) {return c - '0';});
+              [](char c) {
+              return c - '0';)};
         return n;
     }
     
