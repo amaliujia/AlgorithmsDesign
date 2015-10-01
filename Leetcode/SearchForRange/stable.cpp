@@ -29,6 +29,6 @@ public:
             if(A[index] <= target)   left = index + 1;
             else right = index - 1;
         }
-        return left;
+        return right;
     }
 };
