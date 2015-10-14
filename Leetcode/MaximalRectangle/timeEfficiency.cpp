@@ -12,6 +12,7 @@ int maximalRectangle(vector<vector<char>> &matrix){
             if(matrix[i][j] == '0'){
                 height[i].push_back(0);
             }else{
+                // for none-first row, the cur_rec height is height + upper neighbor 
                 int val = i == 0 ? 1 : height[i - 1][j] + 1;
                 height[i].push_back(val);
             }
