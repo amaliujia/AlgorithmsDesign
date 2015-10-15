@@ -14,9 +14,9 @@ private:
             return;
         }        
         int n = s.length();
-        for(int i = 0; i < n; i++){
-            if(isPalindrome(s.substr(0, i + 1))){
-                v.push_back(s.substr(0, i + 1));
+        for(int i = 1; i < n; i++){
+            if(isPalindrome(s.substr(0, i))){
+                v.push_back(s.substr(0, i));
                 backtracking(s.substr(i, n - i), size - i - 1, v, result);
                 v.pop_back();
             }

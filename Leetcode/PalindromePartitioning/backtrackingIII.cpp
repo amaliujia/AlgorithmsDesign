@@ -7,7 +7,7 @@ vector<vector><string>> partition(string s){
 
 // s[0, prev - 1] is palindrome   
 // prev indicates position between s[prev - 1], s[prev - 1], the same as start   
-void DFS(string &S, vector<string> &path, vector<vector<string>> &result, size_t prev, size_t start){
+void DFS(string &s, vector<string> &path, vector<vector<string>> &result, size_t prev, size_t start){
 	if(start == s.size()){ // at the end of string
 		if(isPalindrome(s, prev, start - 1)){
 			path.push_back(s.substr(prev, start-prev));
