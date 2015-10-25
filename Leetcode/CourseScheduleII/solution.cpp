@@ -12,6 +12,28 @@ class Graph{
     }
     s.push(cur);
   }
+
+  bool isCyclicUtil(int v, vector<bool>& visited, vector<bool>& recStack){
+    if(!visited[v]){
+      visited[v] = true;
+      recStack[v] = true;
+
+      for(int next : edges[v]){
+
+        if(recStack[next]){
+          return true;
+        }
+
+        if(!visited[next] && isCyclicUtil(next, visited, recStack)){
+          return true;
+        }
+      }
+    }
+
+    recStack[v] = false;
+    return false;
+  }
+
   public:
   Graph(int v){
     this->V = v;
@@ -39,7 +61,20 @@ class Graph{
       res.push_back(s.top());
       s.pop();
     }
-  }  
+  } 
+
+
+  bool isCyclic(){
+    vector<bool> visited(V, false);
+    vector<bool> recStack(V, false);
+
+    for(int i = 0; i < V; i++){
+      if(isCyclicUtil(i, visited, recStack)){
+        return true;
+      }
+    }
+    return false;
+  }
 };
 
 class Solution {
@@ -51,6 +86,9 @@ class Solution {
       }
 
       vector<int> res;
+      if(graph.isCyclic()){
+        return res;
+      }
       graph.topologicalSort(res);
       return res;
     }
