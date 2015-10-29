@@ -1,5 +1,7 @@
+#include <vector>
+using namespace std;
 
-void getZeroOne(vector<int> vec){
+void getZeroOne(vector<int>& vec){
   if(vec.size() < 2){
     return;
   }
@@ -13,14 +15,13 @@ void getZeroOne(vector<int> vec){
   count[vec[i]] = 1; 
   // 0110000111
   // cur is the number we are trying to find to put it on the right side 
-  //  
   while(j < vec.size()){
     j++;
     count[vec[j]]++; 
      
     if(vec[j] == cur){
       // find one that should put on the right side
-      if(count[0] == count[1]){ // if say 0011
+      if(count[0] == count[1]){ // say 0011
         //print
         while(vec[i] != cur){
            count[1-cur]--;
