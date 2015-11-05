@@ -5,8 +5,8 @@ int longestConsecutive(vector<int> &num){
 	unordered_set<int> s;
 	int maxLen = 1;
 
-    for(auto i : num)
-        s.insert(i);
+  for(auto i : num)
+     s.insert(i);
 
 	for(auto i : num){
 		auto left = i - 1;
