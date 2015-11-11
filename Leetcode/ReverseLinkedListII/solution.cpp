@@ -10,6 +10,7 @@ public:
            count++;
            p = p->next;
        }
+       
        if(p == NULL)    return head;
        ListNode *connection = p;
        ListNode *prev = p->next;

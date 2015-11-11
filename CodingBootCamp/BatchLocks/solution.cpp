@@ -8,7 +8,7 @@ class Lock{
 static Lock Lock_map;
 static map<int, Lock *> locks;
 
-void batch(vector<int>& entites, map<int, Lock *>& locks){
+void batchLocks(vector<int>& entites, map<int, Lock *>& locks){
   for(int i : entities) {
       Lock_map.lock();
       Lock *cur = NULL; 
@@ -19,7 +19,16 @@ void batch(vector<int>& entites, map<int, Lock *>& locks){
         cur = locks[id];
       }
       Lock_map.unlock();
+      cur->lock();
+  } 
+}
 
-      while(!cur->try_lock());
+void batchUnlocks(vector<int>& entites, map<int, Lock *>& locks){
+  for(int i : entities) {
+      Lock *cur = NULL; 
+      Lock_map.lock();
+      cur = locks[id];
+      Lock_map.unlock();
+      cur->unlock();
   } 
 }

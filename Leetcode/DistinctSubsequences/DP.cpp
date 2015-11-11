@@ -7,6 +7,7 @@ int numDistinct(string S, string T){
 	for(int i = 0; i < n; i++){
 		f[m][i] = 0;
 	}
+
 	for(int i = m - 1; i >= 0; i--){
 		for(int j = n - 1; j >= 0; j--){
 			if(S[i] == T[j]){
