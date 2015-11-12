@@ -1,3 +1,4 @@
+// time worst case n^2
 class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
