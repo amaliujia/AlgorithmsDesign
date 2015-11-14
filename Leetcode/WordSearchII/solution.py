@@ -54,7 +54,6 @@ class Trie(object):
         child.word = True
 
     def search(self, word):
-
         child = self.root
         for i in xrange(len(word)):
             s = word[i]
@@ -65,7 +64,6 @@ class Trie(object):
         return child.word
 
     def startsWith(self, prefix):
-
         child = self.root
         for i in xrange(len(prefix)):
             s = prefix[i]
