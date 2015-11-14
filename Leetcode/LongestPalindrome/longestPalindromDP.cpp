@@ -10,7 +10,7 @@ string longestPalindromeDP(string s) {
 	int maxStringStart = 0;
 	bool table[1000][1000] = { false };
 	
-  for(int i = 0; i < len-1; i++){
+	for(int i = 0; i < len-1; i++){
 		table[i][i] = true; 
 	}
 
