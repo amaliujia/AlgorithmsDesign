@@ -53,18 +53,18 @@ def search( word, maxCost ):
     # build first row
     currentRow = range( len(word) + 1 )
 
-    results = []
-
+    result = ["Nosense"]
+    maxCost = [1234]
     # recursively search each branch of the trie
     for letter in trie.children:
         searchRecursive(trie.children[letter], letter, None, word, currentRow,
-            None results, maxCost )
+            None, result, maxCost )
 
     return results
 
 # This recursive helper is used by the search function above. It assumes that
 # the previousRow has been filled in already.
-def searchRecursive(node, letter, pletter, word, previousRow, ppreviousRow, results, maxCost ):
+def searchRecursive(node, letter, pletter, word, previousRow, ppreviousRow, result, maxCost ):
 
     columns = len( word ) + 1
     currentRow = [ previousRow[0] + 1 ]
@@ -95,15 +95,17 @@ def searchRecursive(node, letter, pletter, word, previousRow, ppreviousRow, resu
 
     # if the last entry in the row indicates the optimal cost is less than the
     # maximum cost, and there is a word in this trie node, then add it.
-    if currentRow[-1] <= maxCost and node.word != None:
-        results.append( (node.word, currentRow[-1] ) )
+    if currentRow[-1] <= maxCost[0] and node.word != None:
+        result[0] = node.word
+        maxCost[0] = currentRow[-1]
+
 
     # if any entries in the row are less than the maximum cost, then
     # recursively search each branch of the trie
-    if min( currentRow ) <= maxCost:
+    if min( currentRow ) <= len(word):
         for next_letter in node.children:
             searchRecursive( node.children[next_letter], next_letter, letter, word, currentRow, previousRow
-                results, maxCost )
+                result, maxCost )
 
 start = time.time()
 results = search( TARGET, MAX_COST )
