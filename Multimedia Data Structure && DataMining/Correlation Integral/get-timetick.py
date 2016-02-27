@@ -11,7 +11,11 @@
 ###########################################################
 
 import sys
-import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+#mpl.use('GTK')
+
+#import matplotlib.pyplot as plt
 
 def L1(p1, p2):
     return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1]) + abs(p1[2] - p2[2])
@@ -20,8 +24,7 @@ def D2DimensionNavieL1(data=[]):
     ret_x = []
     ret_y = []
     r = 0.0
-    for i in range(0, 100):
-        r += 0.01
+    for i in range(0, 400):
         ret_x.append(r)
         count = 0
         for p in data:
@@ -29,6 +32,7 @@ def D2DimensionNavieL1(data=[]):
                 if (L1(p, q) <= r):
                     count += 1
         ret_y.append(count)
+        r += 0.01
     return ret_x, ret_y
 
 
@@ -55,7 +59,7 @@ if __name__ == "__main__":
     infile.close()
 
     x_axis, y_axis = D2DimensionNavieL1(data)
-    plt.plot(x_axis, y_axis)
+    #plt.plot(x_axis, y_axis)
     print x_axis
     print y_axis
-    plt.show()
+    #plt.show()
